@@ -1,6 +1,7 @@
-#include <SFML/Graphics.hpp>
 #include <iostream>
-int main()
+#include <SFML/Graphics.hpp>
+
+void TimeModule()
 {
     sf::Clock clock;
     sf::Time time1 = sf::milliseconds(100);
