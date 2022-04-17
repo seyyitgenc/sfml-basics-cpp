@@ -1,4 +1,3 @@
-#include <string>
 #include <SFML/Graphics.hpp>
 class TileMap : public sf::Drawable, public sf::Transformable
 {
@@ -45,4 +44,27 @@ private:
     sf::VertexArray m_vertices;
     sf::Texture m_tileset;
 };
-
+const int level[] =
+    {
+        0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 2, 0, 0, 0, 0,
+        1, 1, 0, 0, 0, 0, 0, 0, 3, 3, 3, 3, 3, 3, 3, 3,
+        0, 1, 0, 0, 2, 0, 3, 3, 3, 0, 1, 1, 1, 0, 0, 0,
+        0, 1, 1, 0, 3, 3, 3, 0, 0, 0, 1, 1, 1, 2, 0, 0,
+        0, 0, 1, 0, 3, 0, 2, 2, 0, 0, 1, 1, 1, 1, 2, 0,
+        2, 0, 1, 0, 3, 0, 2, 2, 2, 0, 1, 1, 1, 1, 1, 1,
+        0, 0, 1, 0, 3, 2, 2, 2, 0, 0, 0, 0, 1, 1, 1, 1};
+void renderingThreadTileMap(sf::RenderWindow *window)
+{
+    TileMap map;
+    if (!map.load("tilemap-tileset.png", sf::Vector2u(32, 32), level, 16, 8))
+    {
+        // error
+    }
+    while (window->isOpen())
+    {
+        window->clear();
+        window->draw(map);
+        window->display();
+    }
+}

@@ -1,8 +1,9 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
-void renderingThread(sf::RenderWindow *);
-
+void renderingThreadShapes(sf::RenderWindow *);
+void renderingThreadVerticies(sf::RenderWindow *);
+void renderingThreadTileMap(sf::RenderWindow *);
 void Window()
 {
     // sf::Window window(sf::VideoMode(700,700),"title"); //alternative window drawing
@@ -11,8 +12,12 @@ void Window()
     // screen.setSize(sf::Vector2u(600, 600));   // re-size
     screen.setTitle("Tile Map"); // re-title
     screen.setActive(false);
-    sf::Thread thread(&renderingThread, &screen);
+
+    // sf::Thread thread(&renderingThreadShapes, &screen);
+    // sf::Thread thread(&renderingThreadVerticies, &screen);
+    sf::Thread thread(&renderingThreadTileMap,&screen);
     thread.launch();
+
     // screen.setVerticalSyncEnabled(true); //never use both of them at the same time
     screen.setFramerateLimit(60); // it's not much accurate like setVerticalSyncEnabled
     while (screen.isOpen())
