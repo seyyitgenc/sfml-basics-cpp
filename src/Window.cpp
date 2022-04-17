@@ -6,10 +6,10 @@ void renderingThread(sf::RenderWindow *);
 void Window()
 {
     // sf::Window window(sf::VideoMode(700,700),"title"); //alternative window drawing
-    sf::RenderWindow screen(sf::VideoMode(600, 600), "");
+    sf::RenderWindow screen(sf::VideoMode(512, 256), "");
     screen.setPosition(sf::Vector2i(10, 10)); // re-position
     // screen.setSize(sf::Vector2u(600, 600));   // re-size
-    screen.setTitle("SFML Window"); // re-title
+    screen.setTitle("Tile Map"); // re-title
     screen.setActive(false);
     sf::Thread thread(&renderingThread, &screen);
     thread.launch();
