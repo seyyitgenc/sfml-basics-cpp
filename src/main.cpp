@@ -3,9 +3,11 @@
 
 void TimeModule();
 void Threads();
+void Window();
 int main()
 {
-    TimeModule();
-    Threads();
+    // TimeModule();
+    // Threads();
+    Window();
     return 0;
 }
