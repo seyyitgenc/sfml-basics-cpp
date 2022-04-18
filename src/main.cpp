@@ -4,10 +4,12 @@
 void TimeModule();
 void Threads();
 void Window();
+void Particles();
 int main()
 {
     // TimeModule();
     // Threads();
-    Window();
+    // Window();
+    Particles();
     return 0;
 }
